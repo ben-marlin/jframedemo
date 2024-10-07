@@ -109,13 +109,13 @@ Put your name & date comment in. Copy the import statements over. Tell it your c
 
 Copy the constructor across. Rename it appropriately. 
 
-Copy the main method across. Change the class name from JFrameGraphics to whatever your new class is called.
+Copy the main method across. Make sure your new class is not called `JFrameGraphics`, but whatever your new file is called.
 
 Note: Both of those methods should be inside the body of your new class.
 
 ### DrawingPanel
 
-Copy DrawingPanel across after the end of your JFrame code. It has to be outside the last curly brace.
+Copy the `DrawingPanel` class across after the end of your JFrame code. It has to be outside the last curly brace. This is a `private` class that is used directly by the class above it.
 
 ### Test it!
 
@@ -127,17 +127,19 @@ Pick an appropriate title for the window. Set the size to something other than 4
 
 ## Start with a Rectangle
 
-Delete the contents of `paintComponent`, after the blue rectangle. It should look like this.
+The remaining code is all about changint the method `paintComponent`! 
+
+Delete the contents of `paintComponent` after the blue rectangle. It should look like this.
 
 ```
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        // Draw a blue rectangle 
-        g.setColor(Color.BLUE);
-        g.fillRect(50, 50, 100, 100);
-    }
+@Override
+protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
+    
+    // Draw a blue rectangle 
+    g.setColor(Color.BLUE);
+    g.fillRect(50, 50, 100, 100);
+}
 ```
 Experiment with changing the 50, 50 to 0, 0 and 0, 50 and 50, 0 and other values. After each change, test the program to see where it draws the rectangle. Close the window after running it.
 
@@ -145,19 +147,19 @@ Once you have an idea of where this will end up, make a rectangle near the upper
 
 When you feel comfortable with that, change it to make a rectangle that is longer than it is tall, but does not run off the side of the window. This may require adjusting the first entries as well. Make note of the values you used for x, y (the postion) and w, h (the width & height).
 
-Once you have done that, change `g.fillRect(blah)` to `g.fillRoundedRect(50, 50, 100, 100, 25, 25)`. Run this to make sure it works, then change 50, 50 and 100, 100 to the values you had found for your new window size. Experiment with changing 25, 25 to values as low as 5, 5 and as high as 50, 50 to see what difference it makes.
+Once you have done that, change `g.fillRect(blah)` to `g.fillRoundedRect(50, 50, 100, 100, 25, 25)`. Run this to make sure it works, then change 50, 50 and 100, 100 to  values that look good for your new window size. Experiment with changing 25, 25 to values as low as 5, 5 and as high as 50, 50 to see what difference it makes.
 
 ## Signing Your Artwork
 
 Now insert something like this.
 
 ```
-        // Print text in black
-        g.setColor(Color.BLACK);
-        g.drawString("your name here", 150, 350);
+// Print text in black
+g.setColor(Color.BLACK);
+g.drawString("your name here", 150, 350);
 ```
 
-Change "your name here" appropriately. Then change the 150, 350 until you place your name into the rounded rectangle. If the rectangle is too small, go back and change the size and position as needed.
+Change "your name here" appropriately. Then change the 150, 350 until you place your name into the rounded rectangle. Increasing or decreasing the first number moves it left & right. Increasing or decreasing the second number moves it up & down. If the rectangle is too small, go back and change the size and position as needed.
 
 Experiment with changing `Color.BLACK` to other colors to see what shows up well on the blue background. Alternately, you could change the color of the rectangle.
 
@@ -166,13 +168,13 @@ Experiment with changing `Color.BLACK` to other colors to see what shows up well
 Add the following code.
 
 ```
-        // Draw a red circle
-        g.setColor(Color.RED);
-        g.fillOval(200, 50, 150, 150);
+// Draw a red circle
+g.setColor(Color.RED);
+g.fillOval(200, 50, 150, 150);
 
-        // Draw an arc
-        g.setColor(Color.WHITE);
-        g.drawArc(200 + 10, 50 + 10, 150 - 20, 150 - 20, 0, 90);
+// Draw an arc
+g.setColor(Color.WHITE);
+g.drawArc(200 + 10, 50 + 10, 150 - 20, 150 - 20, 0, 90);
 ```
 When you run this, it should draw a circle and a quarter circle arc inside it. The 0, 90 refers to positions on the circle from 0 degrees to 360 degrees. By changing values, figure out where 0 is and what direction increasing the values moves it.
 
@@ -180,19 +182,21 @@ Modify this code by changing the 200, 50 (notice that appears more than one plac
 
 Finally, add two more black ovals to make eyes. The resulty should look like a smiley face.
 
-## Draw a Star
+Note: A clever way to fiddle with the 200, 50 is to add code like `int xpos = 200; ypos = 50;` and then replace all occurences of the 200 & 50 with `xpos` and `ypos`. The advantage of this is that you can then edit the 200 in one place and it will change all the other places!
+
+## Draw a Triangle
 
 Add the following code.
 
 ```
-    // Set the drawing color
-    g.setColor(Color.PINK);
+// Set the drawing color
+g.setColor(Color.PINK);
 
-    // Define the points of the star
-    int[] xPoints = {50, 70, 110, 80, 90, 50, 10, 20, -10, 30};
-    int[] yPoints = { 0, 30,  30, 50, 90, 70, 90, 50, 30, 30};
+// Define the points of the triangle
+int[] xPoints = {50, 70, 110};
+int[] yPoints = { 0, 30,  30};
 
-    g.drawPolygon(xPoints, yPoints, xPoints.length);
+g.drawPolygon(xPoints, yPoints, xPoints.length);
 ```
 
 The arrays `xPoints` and `yPoints` hold the x and y coordinates, respectively, of points of a star.
