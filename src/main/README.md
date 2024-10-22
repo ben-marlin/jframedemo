@@ -115,11 +115,11 @@ Note: Both of those methods should be inside the body of your new class.
 
 ### DrawingPanel
 
-Copy the `DrawingPanel` class across after the end of your JFrame code. It has to be outside the last curly brace. This is a `private` class that is used directly by the class above it.
+Copy the `DrawingPanel` class across after the end of your JFrame code. It has to be outside the last curly brace. This is a `private` class that is used directly by the class above it. In order to avoid conflicts with the original code, we're going to change the name. Double click the word `DrawingPanel`, then right click to get the pop-up menu. Choose the option that says something like "change all occurences". Now make a new name like MyDrawingPanel or NamePanel or whatever. This should change every occurrence in the file.
 
 ### Test it!
 
-This should have managed an exact copy of the program. Run it to make sure it works. If it doesn't, we'll have to look over it.
+This should have managed an almost exact copy of the program. Run it to make sure it works. If it doesn't, we'll have to look over it.
 
 ## Making It Your Own
 
@@ -127,9 +127,9 @@ Pick an appropriate title for the window. Set the size to something other than 4
 
 ## Start with a Rectangle
 
-The remaining code is all about changint the method `paintComponent`! 
+The remaining code is all about changing the method paintComponent! 
 
-Delete the contents of `paintComponent` after the blue rectangle. It should look like this.
+Delete the contents of paintComponent after the blue rectangle. It should now look like this.
 
 ```
 @Override
@@ -145,9 +145,9 @@ Experiment with changing the 50, 50 to 0, 0 and 0, 50 and 50, 0 and other values
 
 Once you have an idea of where this will end up, make a rectangle near the upper right corner. Then experiment with changing the 100, 100 to 50, 50 and 50, 100 and 100, 50 to see what difference each makes. 
 
-When you feel comfortable with that, change it to make a rectangle that is longer than it is tall, but does not run off the side of the window. This may require adjusting the first entries as well. Make note of the values you used for x, y (the postion) and w, h (the width & height).
+When you feel comfortable with that, change it to make a rectangle that is longer than it is tall, but does not run off the side of the window. This may require adjusting the first entries as well. Make note of the values you used for x, y (the position) and w, h (the width & height).
 
-Once you have done that, change `g.fillRect(blah)` to `g.fillRoundedRect(50, 50, 100, 100, 25, 25)`. Run this to make sure it works, then change 50, 50 and 100, 100 to  values that look good for your new window size. Experiment with changing 25, 25 to values as low as 5, 5 and as high as 50, 50 to see what difference it makes.
+Once you have done that, change `g.fillRect(blah)` to `g.fillRoundRect(50, 50, 100, 100, 25, 25)`. Run this to make sure it works, then change 50, 50 and 100, 100 to  values that look good for your new window size. Experiment with changing 25, 25 to values as low as 5, 5 and as high as 50, 50 to see what difference it makes.
 
 ## Signing Your Artwork
 
