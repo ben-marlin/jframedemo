@@ -180,7 +180,7 @@ When you run this, it should draw a circle and a quarter circle arc inside it. T
 
 Modify this code by changing the 200, 50 (notice that appears more than one place) so the circle appears in the upper left corner of your window. Then modify the code to make the circle yellow and the arc black. Then modify the 0, 90 to get something that looks like a smiley face.
 
-Finally, add two more black ovals to make eyes. The resulty should look like a smiley face.
+Finally, add two more black ovals to make eyes. The resulty should look like a smiley face. Please note that I'm not being an art critic, but I expect this to look a little like a smiley face - if the eye is in the mouth or something, you could have done better...
 
 Note: A clever way to fiddle with the 200, 50 is to add code like `int xpos = 200; ypos = 50;` and then replace all occurences of the 200 & 50 with `xpos` and `ypos`. The advantage of this is that you can then edit the 200 in one place and it will change all the other places!
 
@@ -199,18 +199,18 @@ int[] yPoints = { 0, 30,  30};
 g.drawPolygon(xPoints, yPoints, xPoints.length);
 ```
 
-The arrays `xPoints` and `yPoints` hold the x and y coordinates, respectively, of points of a star.
+The arrays `xPoints` and `yPoints` hold the x and y coordinates, respectively, of vertices of a triangle.
 
-Experiment with changing the coordinates to move the star to the lower right corner of the window. To do this, add the same value to all the `xPoints` and run it - this should move things to the right. Experiment with adding more or subtracting. When you have it where you want it horizontally, add a number to all the `yPoints` and run it. Experiment until you get all your points in the lower right corner and have roughly preserved the star.
+Experiment with changing the coordinates to move the triangle to the lower right corner of the window. To do this, add the same value to all the `xPoints` and run it - this should move things to the right. Experiment with adding more or subtracting. When you have it where you want it horizontally, add a number to all the `yPoints` and run it. Experiment until you get all your points in the lower right corner and have roughly preserved the star. Again, I'm not going to play art critic, but lower right corner counts for something here.
 
-If you want to see what it does, you might try changing this to `fillPolygon`.
+Try changing the drawPolygon to fillPolygon.
 
 ## Open Ended
 
-Now, let's open this up to your creativity! You know how to draw circles, rectangles, arcs, and polygons. You can also draw a line like this: `g.drawLine(startx, starty, endx, endy)`. Draw something fun! It doesn't have to be a great art project, just something you want to do. But put it in the lower left corner.
+Now, let's open this up to your creativity! You know how to draw circles, rectangles, arcs, and polygons. You can also draw a line like this: `g.drawLine(startx, starty, endx, endy)`. Draw something fun! It doesn't have to be a great art project, just something you want to do. But put *something* in the lower left corner.
 
 ## Wrapping Up
 
 That should give you a feel for the graphics. Make sure you have comments to help you remember what this did when you return to the program later. Then save it, stage it, commit it, and sync it.
 
-Tell me on Canvas when you're ready to have it graded.
+Take a screenshot using Command-Control-4 and spacebar on a Mac or Alt-PrtScn on Windows. Paste this in Canvas. Also go to GitHub and copy the URL of your repo (like you did to clone a repo onto a new machine) and paste it into the window in Canvas. This helps me out in case you had trouble getting it turned in.
