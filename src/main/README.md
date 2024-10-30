@@ -35,7 +35,7 @@ The method call to `setTitle` does what you think it does. Pass it a string and 
 
 The method call to `setSize` also does what you think, but it takes the width first, then the height. The measurement units are pixels. Older computers will have a screen about 1000 pixels wide. Newer computers will have 2000-4000, depending on your settings (setting a laptop to lower resolution should use less power, extending your battery life).
 
-- This would be a good point to experiment with. Close the window, then experiment with different values other than 400.
+- This would be a good point to experiment with. Close the window, then experiment with values other than 400.
 
 The method call `setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)` tells Java to close the window when someone closes the window... I've never seen anyone use a different option here, but I'm sure there are some.
 
@@ -59,7 +59,7 @@ Just creates the window from within the `main` method.
 
 `frame.setVisible(true);`
 
-Until this method call, the window is not visible. It is common practice to set various options for the window before making it visible.
+Until this method call, the window is not visible. It is common practice to set various options for the window before making it visible. We could also have included setVisible(true) inside the constructor instead of here.
 
 `class DrawingPanel extends JPanel`
 
@@ -67,7 +67,7 @@ Like the `JFrame`, the `JPanel` is a predefined component. Whereas the `JFrame` 
 
 `@Override`
 
-This notifies the `JPanel` that it should completely ignore any predefined instance of the method that follows in favor of what we're writing.
+This notifies the `JPanel` that it should completely ignore any predefined instance of the method that follows in favor of what we're writing. It is important to see that any methods not overridden is already defined - but usually are just blank, doing nothing.
 
 `protected void paintComponent(Graphics g)`
 
@@ -97,21 +97,21 @@ That was a lot! But now you're going to duplicate it.
 
 ### A New File
 
-Start by creating a new file: in Explorer, right click on the folder JFrameGraphics.java is in, then choose New File. Give the new file a name of the form `MarlinGraphics.java` - but use your last name, of course.
+Start by creating a new file: in Explorer, right click on the folder JFrameGraphics.java is in, then choose New File. Give the new file a name of the form `MarlinGraphics.java` - but use your last name, of course. A note: Here I should say to type `MarlinGraphics` and let Java write the `.java` for you. It's too easy to accidentally type Java or something just a little off so it's hard to find the mistake!
 
 VSCode will add the package & class stuff for you, but you're going to copy a lot from JFrameGraphics.java and then adapt it.
 
 ### Top Matter
 
-Put your name & date comment in. Copy the import statements over. Tell it your class `extends JFrame`.
+Put your name & date comment in. Copy the import statements over. Tell it your new class `extends JFrame` the same way the sample code did.
 
 ### Constructor & main
 
 Copy the constructor across. Rename it appropriately. 
 
-Copy the main method across. Make sure your new class is not called `JFrameGraphics`, but whatever your new file is called.
+Copy the main method across. Change your new object's class to whatever your new file is called - e.g. not JFrameGraphics but MarlinGraphics.
 
-Note: Both of those methods should be inside the body of your new class.
+Note: Both of those methods should be inside the body of your new class (i.e. between the curly braces).
 
 ### DrawingPanel
 
@@ -123,14 +123,13 @@ This should have managed an almost exact copy of the program. Run it to make sur
 
 ## Making It Your Own
 
-Pick an appropriate title for the window. Set the size to something other than 400 x 400. Choose a color for the background.
+Pick an appropriate title for the window. Set the size to something other than 400 x 400. Choose a new color for the background.
 
 ## Start with a Rectangle
 
 The remaining code is all about changing the method paintComponent! 
 
 Delete the contents of paintComponent after the blue rectangle. It should now look like this.
-
 ```
 @Override
 protected void paintComponent(Graphics g) {
@@ -141,27 +140,25 @@ protected void paintComponent(Graphics g) {
     g.fillRect(50, 50, 100, 100);
 }
 ```
-Experiment with changing the 50, 50 to 0, 0 and 0, 50 and 50, 0 and other values. After each change, test the program to see where it draws the rectangle. Close the window after running it.
+Experiment with changing the 50, 50 to 0, 0 and 0, 50 and 50, 0 and other values. After each change, test the program to see where it draws the rectangle. Close the window after running it each time.
 
-Once you have an idea of where this will end up, make a rectangle near the upper right corner. Then experiment with changing the 100, 100 to 50, 50 and 50, 100 and 100, 50 to see what difference each makes. 
+Once you have an idea of where this will end up, make the rectangle draw near the upper right corner. Then experiment with changing the 100, 100 to 50, 50 and 50, 100 and 100, 50 to see what difference each makes. 
 
-When you feel comfortable with that, change it to make a rectangle that is longer than it is tall, but does not run off the side of the window. This may require adjusting the first entries as well. Make note of the values you used for x, y (the position) and w, h (the width & height).
+When you feel comfortable with that, change it to make a rectangle that is longer than it is tall, but *does not run off the side of the window*. This may require adjusting the first entries as well. Make note of the values you used for x, y (the position) and w, h (the width & height). Make sure your rectangle is completely on the screen!
 
 Once you have done that, change `g.fillRect(blah)` to `g.fillRoundRect(50, 50, 100, 100, 25, 25)`. Run this to make sure it works, then change 50, 50 and 100, 100 to  values that look good for your new window size. Experiment with changing 25, 25 to values as low as 5, 5 and as high as 50, 50 to see what difference it makes.
 
 ## Signing Your Artwork
 
 Now insert something like this.
-
 ```
 // Print text in black
 g.setColor(Color.BLACK);
 g.drawString("your name here", 150, 350);
 ```
-
 Change "your name here" appropriately. Then change the 150, 350 until you place your name into the rounded rectangle. Increasing or decreasing the first number moves it left & right. Increasing or decreasing the second number moves it up & down. If the rectangle is too small, go back and change the size and position as needed.
 
-Experiment with changing `Color.BLACK` to other colors to see what shows up well on the blue background. Alternately, you could change the color of the rectangle.
+Experiment with changing `Color.BLACK` to other colors to see what shows up well on the blue background. You could also change the color of the rectangle.
 
 ## Smiley Face
 
@@ -203,11 +200,11 @@ The arrays `xPoints` and `yPoints` hold the x and y coordinates, respectively, o
 
 Experiment with changing the coordinates to move the triangle to the lower right corner of the window. To do this, add the same value to all the `xPoints` and run it - this should move things to the right. Experiment with adding more or subtracting. When you have it where you want it horizontally, add a number to all the `yPoints` and run it. Experiment until you get all your points in the lower right corner and have roughly preserved the star. Again, I'm not going to play art critic, but lower right corner counts for something here.
 
-Try changing the drawPolygon to fillPolygon.
+Try changing the drawPolygon to fillPolygon. Experiment with other colors.
 
 ## Open Ended
 
-Now, let's open this up to your creativity! You know how to draw circles, rectangles, arcs, and polygons. You can also draw a line like this: `g.drawLine(startx, starty, endx, endy)`. Draw something fun! It doesn't have to be a great art project, just something you want to do. But put *something* in the lower left corner.
+Now, let's open this up to your creativity! You know how to draw circles, rectangles, arcs, and polygons. You can also draw a line like this: `g.drawLine(startx, starty, endx, endy)`. Draw something fun! It doesn't have to be a great art project, just something you want to do. But put *something* in the lower left corner. What holiday is coming up? Can you draw something for that?
 
 ## Wrapping Up
 
