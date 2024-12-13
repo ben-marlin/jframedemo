@@ -23,32 +23,31 @@ public class JFrameGraphics extends JFrame {
         add(panel);
     }
 
+    class DrawingPanel extends JPanel {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+    
+            // Draw a blue rectangle 
+            g.setColor(Color.BLUE);
+            g.fillRect(50, 50, 100, 100);  // x, y, width, height
+    
+            // Draw a red circle
+            g.setColor(Color.RED);
+            g.fillOval(200, 50, 150, 100);  // x, y, width, height
+    
+            // Draw a yellow rounded rectangle
+            g.setColor(Color.YELLOW);
+            g.fillRoundRect(100, 200, 200, 100, 50, 50);  // x, y, width, height, arcWidth, arcHeight
+    
+            // Print text in black
+            g.setColor(Color.BLACK);
+            g.drawString("your name here", 150, 350);  // text, x, y
+        }
+    }
+
     public static void main(String[] args) {
         JFrameGraphics frame = new JFrameGraphics();
         frame.setVisible(true);
-    }
-}
-
-class DrawingPanel extends JPanel {
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-        // Draw a blue rectangle 
-        g.setColor(Color.BLUE);
-        g.fillRect(50, 50, 100, 100);  // x, y, width, height
-
-        // Draw a red circle
-        g.setColor(Color.RED);
-        g.fillOval(200, 50, 150, 100);  // x, y, width, height
-
-        // Draw a yellow rounded rectangle
-        g.setColor(Color.YELLOW);
-        g.fillRoundRect(100, 200, 200, 100, 50, 50);  // x, y, width, height, arcWidth, arcHeight
-
-        // Print text in black
-        g.setColor(Color.BLACK);
-        g.drawString("your name here", 150, 350);  // text, x, y
     }
 }
